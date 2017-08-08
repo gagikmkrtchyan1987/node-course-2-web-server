@@ -1,7 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 var app = express();
-const fs = require('fs')
+const fs = require('fs');
+const port=process.env.PORT || 5000;
 app.set('view engine', 'hbs');
 
 
@@ -10,7 +11,7 @@ app.use((req, res, next) => {
     var log = `${now} , The request method is ${req.method} ${req.path}`;
     fs.appendFile('server.log', log + '\n', (err) => {
         if (err) {
-            console.log('Unabel to log data')
+            console.log('Unable to log data')
         }
 
     });
@@ -53,6 +54,6 @@ app.get('/bad', (req, res) => {
 })
 
 
-app.listen(5000, () => {
-    console.log('Server is up on server 5000')
+app.listen(port, () => {
+    console.log(`Server is up on server ${port}`)
 })
