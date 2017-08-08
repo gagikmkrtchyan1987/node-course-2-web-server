@@ -46,6 +46,12 @@ app.get('/about', (req, res) => {
         welocmemessage: 'Welcome to our the about page'
     })
 })
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pagetitle: 'About Page',
+        welocmemessage: 'Welcome to the projects page'
+    })
+})
 
 app.get('/bad', (req, res) => {
     res.send({
